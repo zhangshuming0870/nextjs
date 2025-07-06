@@ -1,36 +1,222 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js 路由系统
 
-## Getting Started
+这是一个基于 Next.js 13+ App Router 的完整路由系统，包含了最常用的页面和功能。
 
-First, run the development server:
+## 🚀 特性
+
+- **现代化架构**: 基于 Next.js 13+ App Router
+- **TypeScript 支持**: 完整的类型安全
+- **主题切换**: 支持浅色和深色主题
+- **响应式设计**: 完美适配各种设备
+- **组件化**: 可复用的组件设计
+- **性能优化**: 自动代码分割和优化
+
+## 📁 项目结构
+
+```
+app/
+├── components/          # 可复用组件
+│   ├── Navigation.tsx   # 导航栏组件
+│   └── ThemeToggle.tsx  # 主题切换组件
+├── styles/              # 样式文件
+│   └── theme.scss       # 主题样式
+├── layout.tsx           # 根布局
+├── page.tsx             # 首页
+├── not-found.tsx        # 404页面
+├── about/               # 关于页面
+│   └── page.tsx
+├── blog/                # 博客页面
+│   └── page.tsx
+├── projects/            # 项目展示页面
+│   └── page.tsx
+├── contact/             # 联系页面
+│   └── page.tsx
+└── dashboard/           # 仪表板页面
+    └── page.tsx
+```
+
+## 🛣️ 路由系统
+
+### 主要页面
+
+1. **首页** (`/`)
+   - 英雄区域展示
+   - 功能特性介绍
+   - 统计数据展示
+
+2. **关于页面** (`/about`)
+   - 个人介绍
+   - 技能展示
+   - 工作经历时间线
+   - 教育背景
+   - 兴趣爱好
+
+3. **博客页面** (`/blog`)
+   - 文章列表展示
+   - 分类和排序筛选
+   - 分页功能
+   - 文章元信息
+
+4. **项目展示** (`/projects`)
+   - 项目卡片展示
+   - 技术栈标签
+   - 项目状态标识
+   - 源码和演示链接
+
+5. **联系页面** (`/contact`)
+   - 联系信息展示
+   - 联系表单
+   - 表单验证
+   - 提交反馈
+
+
+### 特殊页面
+
+- **404页面** (`/not-found.tsx`)
+  - 自定义404错误页面
+  - 友好的错误提示
+  - 返回首页和联系选项
+
+## 🎨 主题系统
+
+### 颜色方案
+
+**浅色主题**:
+- 主背景: 纯白色
+- 次要背景: 浅灰色
+- 主文本: 纯黑色
+- 次要文本: 深灰色
+
+**深色主题**:
+- 主背景: 纯黑色
+- 次要背景: 深灰色
+- 主文本: 纯白色
+- 次要文本: 浅灰色
+
+### 主题切换
+
+- 自动保存用户偏好
+- 响应系统主题设置
+- 平滑切换动画
+- 所有组件自动适配
+
+## 🧩 组件系统
+
+### 核心组件
+
+1. **Navigation** (`components/Navigation.tsx`)
+   - 固定顶部导航
+   - 响应式设计
+   - 当前页面高亮
+   - 图标和文字组合
+
+2. **ThemeToggle** (`components/ThemeToggle.tsx`)
+   - 主题切换按钮
+   - 固定位置
+   - 动画效果
+   - 本地存储
+
+### 样式组件
+
+- `.btn` - 按钮组件
+- `.card` - 卡片组件
+- `.form-input` - 表单输入
+- `.nav-link` - 导航链接
+
+## 📱 响应式设计
+
+### 断点设置
+
+- **桌面端**: > 768px
+- **移动端**: ≤ 768px
+
+### 响应式特性
+
+- 导航栏在移动端隐藏
+- 网格布局自适应
+- 字体大小调整
+- 间距优化
+
+## 🚀 快速开始
+
+### 安装依赖
+
+```bash
+npm install
+```
+
+### 开发模式
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 构建生产版本
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 启动生产服务器
 
-## Learn More
+```bash
+npm start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🔧 技术栈
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **框架**: Next.js 13+
+- **语言**: TypeScript
+- **样式**: SCSS
+- **路由**: App Router
+- **主题**: CSS 变量
+- **图标**: Emoji (可替换为图标库)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📝 自定义配置
 
-## Deploy on Vercel
+### 添加新页面
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. 在 `app/` 目录下创建新文件夹
+2. 添加 `page.tsx` 文件
+3. 在导航组件中添加链接
+4. 添加相应的样式
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 修改主题
+
+编辑 `app/styles/theme.scss` 文件中的 CSS 变量：
+
+```scss
+:root {
+  --bg-primary: #ffffff;
+  --text-primary: #000000;
+  // ... 其他变量
+}
+```
+
+### 添加新组件
+
+1. 在 `app/components/` 目录下创建组件文件
+2. 使用 TypeScript 定义类型
+3. 添加相应的样式
+4. 在需要的地方导入使用
+
+## 🎯 最佳实践
+
+1. **组件化**: 将重复的UI元素提取为组件
+2. **类型安全**: 使用 TypeScript 定义接口和类型
+3. **响应式**: 确保在所有设备上都有良好的体验
+4. **性能**: 使用 Next.js 的优化功能
+5. **可访问性**: 遵循 WCAG 指南
+6. **SEO**: 使用适当的元标签和语义化HTML
+
+## 📄 许可证
+
+MIT License
+
+## 🤝 贡献
+
+欢迎提交 Issue 和 Pull Request！
+
+---
+
+这个路由系统提供了一个完整的 Next.js 应用基础架构，可以快速开始开发各种类型的 Web 应用。

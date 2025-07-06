@@ -1,0 +1,21 @@
+/* 全局样式重置 */
+h1 {
+    margin: 0px;
+}
+
+body {
+    margin: 0px;
+}
+
+/* 全局样式 */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* 导入Cesium样式 */
+@import 'cesium/style.scss'; 
