@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import './styles/theme.scss';
+import './style.scss';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import ThemeToggle from './components/ThemeToggle';
 import Navigation from './components/Navigation';
 
@@ -18,9 +20,9 @@ export default function RootLayout({
       <body>
         <div className="app-layout">
           <Navigation />
-          <main className="main-content">
+          <div className="main-content">
             {children}
-          </main>
+          </div>
         </div>
         <ThemeToggle />
       </body>

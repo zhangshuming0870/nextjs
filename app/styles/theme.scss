@@ -1,12 +1,14 @@
 // 主题变量定义
 :root {
   // 浅色主题 (默认)
-  --bg-primary: #ffffff;
+  --bg-primary: #dbecfb;
   --bg-secondary: #f5f5f5;
   --bg-tertiary: #e0e0e0;
+  --btn-force: #dbecfb;
   --text-primary: #000000;
   --text-secondary: #333333;
   --text-muted: #666666;
+  --text-info: #087FE7;
   --border-color: #d0d0d0;
   --shadow-color: rgba(0, 0, 0, 0.1);
   --accent-color: #007bff;
@@ -25,9 +27,11 @@
   --bg-primary: #000000;
   --bg-secondary: #1a1a1a;
   --bg-tertiary: #2a2a2a;
+  --btn-force: #087FE7;
   --text-primary: #ffffff;
   --text-secondary: #e0e0e0;
   --text-muted: #b0b0b0;
+  --text-info: #087FE7;
   --border-color: #404040;
   --shadow-color: rgba(0, 0, 0, 0.3);
   --accent-color: #4dabf7;
@@ -62,23 +66,44 @@ body {
 }
 
 // 标题样式
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--text-primary);
   font-weight: 600;
   line-height: 1.2;
   margin-bottom: 0.4rem;
 }
 
-h1 { font-size: 2rem; }
-h2 { font-size: 1.6rem; }
-h3 { font-size: 1.4rem; }
-h4 { font-size: 1.2rem; }
-h5 { font-size: 1.1rem; }
-h6 { font-size: 0.9rem; }
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+}
+
+h6 {
+  font-size: 0.9rem;
+}
 
 // 段落和文本
 p {
-  margin-bottom: 0.8rem;
   color: var(--text-secondary);
   font-size: 0.9rem;
 }
@@ -88,7 +113,7 @@ a {
   text-decoration: none;
   transition: color 0.2s ease;
   font-size: 0.9rem;
-  
+
   &:hover {
     color: var(--accent-hover);
   }
@@ -103,16 +128,16 @@ button {
   cursor: pointer;
   font-size: 0.85rem;
   transition: background-color 0.2s ease, transform 0.1s ease;
-  
+
   &:hover {
     background-color: var(--accent-hover);
     transform: translateY(-1px);
   }
-  
+
   &:active {
     transform: translateY(0);
   }
-  
+
   &:disabled {
     background-color: var(--text-muted);
     cursor: not-allowed;
@@ -121,20 +146,22 @@ button {
 }
 
 // 输入框样式
-input, textarea, select {
+input,
+textarea,
+select {
   background-color: var(--input-bg);
   color: var(--text-primary);
   border: 1px solid var(--input-border);
   padding: 0.4rem 0.6rem;
   font-size: 0.85rem;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  
+
   &:focus {
     outline: none;
     border-color: var(--input-focus);
     box-shadow: 0 0 0 2px rgba(77, 171, 247, 0.1);
   }
-  
+
   &::placeholder {
     color: var(--text-muted);
   }
@@ -147,7 +174,7 @@ input, textarea, select {
   padding: 1rem;
   box-shadow: 0 1px 3px var(--shadow-color);
   transition: box-shadow 0.2s ease;
-  
+
   &:hover {
     box-shadow: 0 2px 6px var(--shadow-color);
   }
@@ -155,7 +182,7 @@ input, textarea, select {
 
 // 容器样式
 .container {
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 0.8rem;
 }
@@ -187,33 +214,86 @@ input, textarea, select {
 }
 
 // 间距工具类
-.mt-1 { margin-top: 0.2rem; }
-.mt-2 { margin-top: 0.4rem; }
-.mt-4 { margin-top: 0.8rem; }
-.mt-8 { margin-top: 1.6rem; }
+.mt-1 {
+  margin-top: 0.2rem;
+}
 
-.mb-1 { margin-bottom: 0.2rem; }
-.mb-2 { margin-bottom: 0.4rem; }
-.mb-4 { margin-bottom: 0.8rem; }
-.mb-8 { margin-bottom: 1.6rem; }
+.mt-2 {
+  margin-top: 0.4rem;
+}
 
-.p-1 { padding: 0.2rem; }
-.p-2 { padding: 0.4rem; }
-.p-4 { padding: 0.8rem; }
-.p-8 { padding: 1.6rem; }
+.mt-4 {
+  margin-top: 0.8rem;
+}
+
+.mt-8 {
+  margin-top: 1.6rem;
+}
+
+.mb-1 {
+  margin-bottom: 0.2rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.4rem;
+}
+
+.mb-4 {
+  margin-bottom: 0.8rem;
+}
+
+.mb-8 {
+  margin-bottom: 1.6rem;
+}
+
+.p-1 {
+  padding: 0.2rem;
+}
+
+.p-2 {
+  padding: 0.4rem;
+}
+
+.p-4 {
+  padding: 0.8rem;
+}
+
+.p-8 {
+  padding: 1.6rem;
+}
 
 // 宽度工具类
-.w-full { width: 100%; }
-.w-auto { width: auto; }
+.w-full {
+  width: 100%;
+}
+
+.w-auto {
+  width: auto;
+}
 
 // 间距工具类
-.space-y-2 > * + * { margin-top: 0.4rem; }
-.space-y-4 > * + * { margin-top: 0.8rem; }
+.space-y-2>*+* {
+  margin-top: 0.4rem;
+}
+
+.space-y-4>*+* {
+  margin-top: 0.8rem;
+}
 
 // 网格列工具类
-.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
 @media (min-width: 768px) {
-  .md\\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .md\\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+//图标
+.bi {
+  font-size: 1.5rem;
 }
 
 // 主题切换按钮样式
@@ -234,12 +314,12 @@ input, textarea, select {
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  
+
   &:hover {
     background-color: var(--bg-tertiary);
     transform: scale(1.1);
   }
-  
+
   svg {
     width: 1.2rem;
     height: 1.2rem;
@@ -251,17 +331,17 @@ input, textarea, select {
   html {
     font-size: 12px;
   }
-  
+
   .container {
     padding: 0 0.4rem;
   }
-  
+
   .theme-toggle {
     top: 0.4rem;
     right: 0.4rem;
     width: 2rem;
     height: 2rem;
-    
+
     svg {
       width: 1rem;
       height: 1rem;
@@ -300,18 +380,22 @@ input, textarea, select {
 
 // 应用布局
 .app-layout {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .main-content {
   flex: 1;
-  padding-top: 4rem;
+  padding-top: 60px;
+  height: calc(100vh - 60px);
+  overflow: hidden;
 }
 
 // 导航栏样式
 .navigation {
+  height: 60px;
   position: fixed;
   top: 0;
   left: 0;
@@ -361,12 +445,12 @@ input, textarea, select {
   border-radius: 0.4rem;
   transition: all 0.2s ease;
   font-size: 0.9rem;
-  
+
   &:hover {
     color: var(--text-primary);
     background-color: var(--bg-secondary);
   }
-  
+
   &.active {
     color: var(--accent-color);
     background-color: var(--bg-secondary);
@@ -414,37 +498,37 @@ input, textarea, select {
   text-decoration: none;
   cursor: pointer;
   transition: all 0.2s ease;
-  
+
   &.btn-primary {
     background-color: var(--accent-color);
     color: white;
-    
+
     &:hover {
       background-color: var(--accent-hover);
       transform: translateY(-1px);
     }
   }
-  
+
   &.btn-secondary {
     background-color: var(--bg-secondary);
     color: var(--text-primary);
     border: 1px solid var(--border-color);
-    
+
     &:hover {
       background-color: var(--bg-tertiary);
     }
   }
-  
+
   &.btn-outline {
     background-color: transparent;
     color: var(--accent-color);
     border: 1px solid var(--accent-color);
-    
+
     &:hover {
       background-color: var(--accent-color);
       color: white;
     }
-    
+
     &:disabled {
       opacity: 0.5;
       cursor: not-allowed;
@@ -458,39 +542,39 @@ input, textarea, select {
     padding: 4rem 0;
     background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
   }
-  
+
   .hero-content {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
   }
-  
+
   .hero-title {
     font-size: 3rem;
     margin-bottom: 1rem;
     color: var(--text-primary);
   }
-  
-  
+
+
 }
 
 // 博客页面样式
 .blog-page {
   padding: 2rem 0;
-  
+
   .blog-filters {
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
     flex-wrap: wrap;
   }
-  
+
   .filter-group {
     display: flex;
     align-items: center;
     gap: 0.5rem;
   }
-  
+
   .filter-select {
     padding: 0.4rem 0.8rem;
     border: 1px solid var(--border-color);
@@ -498,32 +582,32 @@ input, textarea, select {
     background-color: var(--input-bg);
     color: var(--text-primary);
   }
-  
+
   .blog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
   }
-  
+
   .blog-card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 0.8rem;
     padding: 1.5rem;
     transition: transform 0.2s ease;
-    
+
     &:hover {
       transform: translateY(-2px);
     }
   }
-  
+
   .blog-card-header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
   }
-  
+
   .blog-category {
     background-color: var(--accent-color);
     color: white;
@@ -531,24 +615,24 @@ input, textarea, select {
     border-radius: 1rem;
     font-size: 0.8rem;
   }
-  
+
   .blog-read-time {
     color: var(--text-muted);
     font-size: 0.8rem;
   }
-  
+
   .blog-title {
     font-size: 1.2rem;
     margin-bottom: 0.8rem;
     color: var(--text-primary);
   }
-  
+
   .blog-excerpt {
     color: var(--text-secondary);
     margin-bottom: 1rem;
     line-height: 1.5;
   }
-  
+
   .blog-meta {
     display: flex;
     justify-content: space-between;
@@ -556,14 +640,14 @@ input, textarea, select {
     font-size: 0.8rem;
     color: var(--text-muted);
   }
-  
+
   .pagination {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
   }
-  
+
   .page-info {
     color: var(--text-secondary);
   }
@@ -572,7 +656,7 @@ input, textarea, select {
 // 项目页面样式
 .projects-page {
   padding: 2rem 0;
-  
+
 }
 
 
@@ -582,37 +666,37 @@ input, textarea, select {
   .nav-menu {
     display: none;
   }
-  
+
   .hero-title {
     font-size: 2rem;
   }
-  
+
   .contact-content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .form-row {
     grid-template-columns: 1fr;
   }
-  
+
   .content-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .about-intro {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .intro-stats {
     justify-content: center;
   }
-  
+
   .timeline {
     padding-left: 1rem;
   }
-  
+
   .timeline-marker {
     left: -0.5rem;
   }
@@ -661,4 +745,185 @@ input, textarea, select {
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
-} 
+}
+
+// 工作页面样式
+.work-page {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+  flex-direction: column;
+  display: flex;
+
+  .work-main-content {
+    width: 60%;
+    flex: 1;
+    display: flex;
+    margin: 0 auto;
+    padding: 1rem 0rem;
+  }
+}
+
+// 白噪音页面样式
+.white-voice-page {
+  flex: 1;
+  margin: 0 auto;
+  display: flex;
+
+  .white-voice-content {
+    flex: 1;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    padding: 1rem;
+    height: 100%;
+  }
+
+  .white-voice-list-name {
+    font-size: 1.2rem;
+  }
+
+  .white-voice-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    li {
+      padding: 1rem;
+      width: 30%;
+      height: 100px;
+      border: 1px solid var(--border-color);
+      margin-right: 1rem;
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+
+      .bi-soundwave {
+        font-size: 2.5rem;
+      }
+
+      .white-voice-list-btn {
+        font-size: 2rem;
+        cursor: pointer;
+        width: 2rem;
+        height: 2rem;
+        background-color: var(--bg-tertiary);
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:hover,&.active{
+          background-color: var(--btn-force);
+        }
+      }
+    }
+  }
+
+}
+
+.work-main-right {
+  margin-left: 2rem;
+  width: 30%;
+  height: 100%;
+
+  .tomato-timer-page {
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    background-color: var(--bg-secondary);
+    height: fit-content;
+
+    .tomato-timer-content {
+      .timer-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .header-title {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          i {
+            font-size: 1.5rem;
+          }
+        }
+      }
+
+      .timer-container {
+        display: flex;
+        flex-direction: column;
+
+        .timer-display {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 1rem;
+
+          .timer-status {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--text-muted);
+          }
+
+          .timer-time {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--text-info);
+          }
+        }
+
+        .timer-controls {
+          display: flex;
+          justify-content: center;
+
+          .bi {
+            display: inline-block;
+            background-color: var(--bg-tertiary);
+            width: 3rem;
+            height: 3rem;
+            cursor: pointer;
+            margin-right: 1rem;
+            line-height: 3rem;
+            text-align: center;
+            border-radius: 0.5rem;
+
+            &:hover {
+              background-color: var(--btn-force);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//时间轴样式
+.time-plan {
+  height: 60px;
+  display: flex;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+
+  ul {
+    li {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: center;
+      position: relative;
+
+      .active {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 10px;
+        height: 10px;
+        background-color: var(--accent-color);
+        border-radius: 50%;
+        z-index: 10;
+      }
+
+    }
+  }
+}

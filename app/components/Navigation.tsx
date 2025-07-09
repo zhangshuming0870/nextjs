@@ -7,10 +7,11 @@ const Navigation = () => {
   const pathname = usePathname();
 
   const navItems = [
-    { href: '/', label: '首页', icon: '🏠' },
-    { href: '/blog', label: '博客', icon: '📝', external: 'https://zhangshuming0870.github.io/post' },
-    { href: '/projects', label: '项目', icon: '💼' },
-    { href: '/about', label: '关于我', icon: 'ℹ️', external: 'https://zhangshuming0870.github.io/me' },
+    { href: '/', label: '首页', icon: 'bi-house' },
+    { href: '/blog', label: '博客', icon: 'bi-journal-text', external: 'https://zhangshuming-blog.vercel.app/post.html' },
+    { href: '/projects', label: '项目', icon: 'bi-briefcase' },
+    { href: '/work', label: '工作台', icon: 'bi-info-circle'},
+    { href: '/about', label: '关于我', icon: 'bi-info-circle', external: 'https://zhangshuming-blog.vercel.app/me.html' },
   ];
 
   const handleProjectClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -23,8 +24,8 @@ const Navigation = () => {
       <div className="container">
         <div className="nav-content">
           <Link href="/" className="nav-logo">
-            <span className="logo-icon">🚀</span>
-            <span className="logo-text">NextApp</span>
+            <span className="logo-icon"><i className="bi bi-lightning-charge-fill"></i></span>
+            <span className="logo-text">zhangshuming的网站</span>
           </Link>
           
           <ul className="nav-menu">
@@ -37,7 +38,7 @@ const Navigation = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <span className="nav-icon">{item.icon}</span>
+                    <span className="nav-icon"><i className={`bi ${item.icon}`}></i></span>
                     <span className="nav-label">{item.label}</span>
                   </a>
                 ) : item.href === '/projects' ? (
@@ -46,7 +47,7 @@ const Navigation = () => {
                     className={`nav-link ${pathname === item.href ? 'active' : ''}`}
                     onClick={handleProjectClick}
                   >
-                    <span className="nav-icon">{item.icon}</span>
+                    <span className="nav-icon"><i className={`bi ${item.icon}`}></i></span>
                     <span className="nav-label">{item.label}</span>
                   </a>
                 ) : (
@@ -54,7 +55,7 @@ const Navigation = () => {
                     href={item.href}
                     className={`nav-link ${pathname === item.href ? 'active' : ''}`}
                   >
-                    <span className="nav-icon">{item.icon}</span>
+                    <span className="nav-icon"><i className={`bi ${item.icon}`}></i></span>
                     <span className="nav-label">{item.label}</span>
                   </Link>
                 )}

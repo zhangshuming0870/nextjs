@@ -5,7 +5,7 @@ export default function NotFound() {
     <div className="not-found-page">
       <div className="container">
         <div className="not-found-content">
-          <div className="not-found-icon">🔍</div>
+          <div className="not-found-icon"><i className="bi bi-search"></i></div>
           <h1 className="not-found-title">404</h1>
           <h2 className="not-found-subtitle">页面未找到</h2>
           <p className="not-found-description">
