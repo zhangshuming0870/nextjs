@@ -43,7 +43,7 @@ next-env.d.ts
 # 忽略大文件和媒体文件
 
 # 忽略3D模型和纹理文件夹
-public/3dRoom/
+# public/3dRoom/
 # public/panoramic/
 # public/work/whiteVoice/
 
