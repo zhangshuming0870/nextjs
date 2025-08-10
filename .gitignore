@@ -30,7 +30,7 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env files (opt-in for committing if needed)
 .env*
 
 # vercel
@@ -39,3 +39,44 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 忽略大文件和媒体文件
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+*.hdr
+*.exr
+*.gltf
+*.glb
+*.bin
+*.wav
+*.mp3
+*.flac
+*.aac
+*.ogg
+*.m4a
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.tiff
+*.svg
+*.ico
+
+# 忽略3D模型和纹理文件夹
+public/3dRoom/
+public/panoramic/
+public/work/whiteVoice/
+
+# 忽略日志文件
+*.log
+nginx.error.log
+
+# 忽略临时文件
+*.tmp
+*.temp
+*.upload.tmp
