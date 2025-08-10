@@ -41,36 +41,11 @@ yarn-error.log*
 next-env.d.ts
 
 # 忽略大文件和媒体文件
-*.mp4
-*.avi
-*.mov
-*.wmv
-*.flv
-*.webm
-*.hdr
-*.exr
-*.gltf
-*.glb
-*.bin
-*.wav
-*.mp3
-*.flac
-*.aac
-*.ogg
-*.m4a
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.bmp
-*.tiff
-*.svg
-*.ico
 
 # 忽略3D模型和纹理文件夹
 public/3dRoom/
-public/panoramic/
-public/work/whiteVoice/
+# public/panoramic/
+# public/work/whiteVoice/
 
 # 忽略日志文件
 *.log
