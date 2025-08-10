@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import TimePlan from "@/app/components/work/TimePlan";
-import WhiteVoice from "@/app/components/work/WhiteVoice";
-import TomatoTimer from "@/app/components/work/tomatoTimer";
+import TimePlan from "../components/work/TimePlan";
+import WhiteVoice from "../components/work/WhiteVoice";
+import TomatoTimer from "../components/work/tomatoTimer";
 
 const Work = () => {
 

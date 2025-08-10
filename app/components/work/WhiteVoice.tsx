@@ -6,36 +6,12 @@ const audioList = [
         file: "/work/whiteVoice/404961__kyles__airport-zurich-terminal-busy-large-waiting-crowd-of-passengers1-pa-voice-echo-and-irate-passenger-end.flac",
     },
     {
-        name: "桥上汽车行驶",
-        file: "/work/whiteVoice/808209__the_25_times__cars-driving-over-bridge.mp3",
-    },
-    {
         name: "太空氛围",
         file: "/work/whiteVoice/815021__universfield__space-30s.mp3",
     },
     {
-        name: "吃薯片（沙沙声）",
-        file: "/work/whiteVoice/365682__mr_alden__eating-potato-chips.wav",
-    },
-    {
-        name: "中国收音机",
-        file: "/work/whiteVoice/251534__kwahmah_02__radiochina1.wav",
-    },
-    {
-        name: "雷暴雨（意大利）",
-        file: "/work/whiteVoice/813233__nicola_ariutti__thunderstorm-pt.flac",
-    },
-    {
-        name: "度假村清晨氛围",
-        file: "/work/whiteVoice/815372__kevp888__004a_091112_2234_sp_calm_resort_atmosphere_morning.mp3",
-    },
-    {
         name: "森林环境（波兰）",
         file: "/work/whiteVoice/814943__audiopapkin__forest-atmosphere-013-localization-poland.wav",
-    },
-    {
-        name: "雷暴雨（阳台/小区）",
-        file: "/work/whiteVoice/815258__newlocknew__storm_thunderstormresidential-areabalconyheavy-rain.wav",
     },
 ];
 
@@ -62,7 +38,8 @@ const WhiteVoice = () => {
     };
 
     const handleEnded = () => {
-        setPlayingIndex(null);
+        // 由于设置了 loop 属性，音频会自动循环播放，不需要重置状态
+        // 只有在手动停止时才重置状态
     };
 
     return (
@@ -94,6 +71,7 @@ const WhiteVoice = () => {
                                 }}
                                 src={audio.file}
                                 onEnded={handleEnded}
+                                loop
                             />
                         </li>
                     ))}

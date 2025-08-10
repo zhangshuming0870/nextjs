@@ -2,6 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  // 配置端口为82
+  env: {
+    PORT: '80',
+  },
   webpack: (config) => {
     config.resolve.fallback = {
       ...config.resolve.fallback,
