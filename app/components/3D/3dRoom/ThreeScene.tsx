@@ -264,6 +264,9 @@ const ThreeScene: React.FC = () => {
         } else if (row === 1 && col === 0) {
           const texture = new THREE.TextureLoader().load('/3dRoom/me.png');
           material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.FrontSide });
+        } else if (row === 1 && col === 1) {
+          const texture = new THREE.TextureLoader().load('/3dRoom/gongzuotai.png');
+          material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.FrontSide });
         } else if (row === 1 && col === 2) {
           const texture = new THREE.TextureLoader().load('/3dRoom/wenzhang.png');
           material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.FrontSide });
@@ -304,10 +307,10 @@ const ThreeScene: React.FC = () => {
 
     teleportDoorManagerRef.current = new SimpleTeleportDoorManager(doorConfig);
     const { door, teleportBox } = teleportDoorManagerRef.current.createComponents();
-    
+
     scene.add(door);
     scene.add(teleportBox);
-    
+
     // 将传送门组件添加到可选择对象列表中
     selectableObjectsRef.current.push(door);
     if (teleportBox) {
@@ -331,6 +334,9 @@ const ThreeScene: React.FC = () => {
       case 'monitor2-1':
         alert('境外服务器，可能需要上梯子');
         window.open('https://zhangshuming-blog.vercel.app/me.html', '_blank');
+        break;
+      case 'monitor2-2':
+        router.push('/work');
         break;
       case 'monitor2-3':
         alert('境外服务器,可能需要上梯子');
@@ -433,12 +439,12 @@ const ThreeScene: React.FC = () => {
     // 渲染循环
     const animate = () => {
       animationIdRef.current = requestAnimationFrame(animate);
-      
+
       // 检测传送门
       if (teleportDoorManagerRef.current && cameraRef.current) {
         teleportDoorManagerRef.current.checkTeleport(cameraRef.current.position);
       }
-      
+
       renderer.render(scene, camera);
     };
     animate();
@@ -512,12 +518,27 @@ const ThreeScene: React.FC = () => {
         fontSize: '14px',
         zIndex: 1000
       }}>
-        <div>点击屏幕进入FPS模式（鼠标将被锁定）</div>
+        <div>点击屏幕进入房间（鼠标将被锁定）</div>
         <div>屏幕中央十字准星瞄准物品</div>
         <div>点击选择当前瞄准的物品</div>
         <div>WASD移动，空格/Shift上下</div>
-        <div>ESC退出FPS模式，I键切换Y轴反转</div>
+        <div>ESC退出房间模式，I键切换Y轴反转</div>
         <div>提示：请允许浏览器锁定鼠标指针</div>
+      </div>
+
+      <div style={{
+        position: 'absolute',
+        top: '3%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        background: 'rgba(0, 0, 0, 0.7)',
+        color: 'white',
+        padding: '10px',
+        borderRadius: '5px',
+        fontSize: '14px',
+        zIndex: 1000
+      }}>
+        <div>服务器带宽有捉急，在修复了...🫡</div>
       </div>
 
 
@@ -529,7 +550,7 @@ const ThreeScene: React.FC = () => {
           rotation={computerRotation}
         />
       )}
-      
+
       {/* 悬浮框组件 */}
       {sceneReady && sceneRef.current && (
         <FloatingBox
@@ -539,7 +560,7 @@ const ThreeScene: React.FC = () => {
           setShowFloatingBox={setShowFloatingBox}
         />
       )}
-      
+
       {/* 工作台组件 */}
       {sceneReady && sceneRef.current && (
         <Workbench
@@ -548,7 +569,7 @@ const ThreeScene: React.FC = () => {
           height={ROOM_CONFIG.height}
         />
       )}
-      
+
       {/* 第一人称相机控制器 */}
       {sceneReady && cameraRef.current && rendererRef.current && sceneRef.current && (
         <FirstPersonCameraController
